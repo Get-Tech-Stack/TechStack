@@ -1,6 +1,8 @@
 # What is Tech Stack
 Tech Stack is a browser extensive. To show the technology stack of the Github repo you are visiting.
 
+![Alt text](img/image.png)
+
 <style>
     .firefox{
         color: white;
