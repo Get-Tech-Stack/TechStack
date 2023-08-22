@@ -1,9 +1,9 @@
 ![LOGO](img/logo.png)
 
 # What is Tech Stack
-Tech Stack is a browser plugin that will display the tech stack of the Github repository you are visiting.
+Tech Stack is a browser extension that will display the tech stack of the Github repository you are visiting.
 
-Tech Stack 是一个浏览器插件，它将展示你正在访问的 Github 仓库的技术栈。
+Tech Stack 是一个浏览器拓展，它将展示你正在访问的 Github 仓库的技术栈。
 
 ![Alt text](img/1.png)
 ![Alt text](img/2.png)
