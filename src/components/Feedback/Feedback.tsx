@@ -43,6 +43,7 @@ const Feedback = ({ url }: PrivateProps) => {
         url +
         "%5D&body=What's%20the%20problem%3F%0D%0A%0D%0AAny%20suggestions%3F";
 
+    // TODO 下面点完like之后应该做一个烟花的动画
     return (
         <div className="tech-footer">
             <div className="tech-feedback">

@@ -5,7 +5,7 @@ import { useTranslation } from 'react-i18next';
 import FingerprintJS from '@fingerprintjs/fingerprintjs';
 import Feedback from 'components/Feedback/Feedback';
 
-const VERSION = '1.11';
+const VERSION = '1.12';
 
 async function fetcher<JSON = any>(input: RequestInfo, init?: RequestInit): Promise<JSON> {
     const res = await fetch(input, { credentials: 'include', ...init });
