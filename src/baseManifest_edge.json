@@ -1,0 +1,45 @@
+{
+    "name": "Tech Stack: Show Github Repo Tech Stack",
+    "author": "CorrectRoadH",
+    "version": "1.12",
+    "manifest_version": 3,
+    "description": "Show a Github repo's tech stack",
+    "short description": "Show a Github repo's tech stack",
+    "icons": {
+        "16": "assets/icons/icon-16.png",
+        "24": "assets/icons/icon-24.png",
+        "64": "assets/icons/icon-64.png",
+        "128": "assets/icons/icon-128.png"
+    },
+    "default_locale": "en",
+    "content_scripts": [
+        {
+            "matches": ["*://github.com/*"],
+            "js": ["content/content.js"],
+            "css": ["content/content.css"],
+            "all_frames": true,
+            "run_at": "document_start"
+        }
+    ],
+    "background": {
+        "service_worker": "background/background.js"
+    },
+    "permissions": ["tabs"],
+    "options_ui": {
+        "page": "options/index.html"
+    },
+    "action": {
+        "default_icon": {
+            "16": "assets/icons/icon-16.png",
+            "48": "assets/icons/icon-48.png"
+        },
+        "default_title": "Teach Stack",
+        "default_popup": "popup/index.html"
+    },
+    "web_accessible_resources": [
+        {
+            "resources": ["assets/*", "content/*", "options/*", "popup/*", "background/*"],
+            "matches": ["<all_urls>"]
+        }
+    ]
+}
