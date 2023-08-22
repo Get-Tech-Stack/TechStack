@@ -36,7 +36,6 @@ const TechStacks = ({ url }: TechStacksProps) => {
     const { t } = useTranslation();
 
     const MAX_PROGRESS = 100;
-    // const MIN_PROGRESS = 0;
     const INCREMENT = 1;
     const SLOWDOWN_THRESHOLD = 90;
     const SLOWDOWN_FACTOR = 3;
@@ -52,19 +51,19 @@ const TechStacks = ({ url }: TechStacksProps) => {
     // create and set the fingerprint as soon as
     // the component mounts
     React.useEffect(() => {
-        const setFp = async () => {
+        const reportVersion = async () => {
             const fp = await FingerprintJS.load();
 
             const { visitorId } = await fp.get();
 
-            // only report first open
-            if (sessionStorage.getItem('fpHash') !== visitorId) {
+            // report extension version
+            if (sessionStorage.getItem('id') !== visitorId) {
                 report(visitorId);
-                sessionStorage.setItem('fpHash', visitorId);
+                sessionStorage.setItem('id', visitorId);
             }
         };
 
-        setFp();
+        reportVersion();
     }, []);
 
     useEffect(() => {
