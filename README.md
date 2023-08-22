@@ -37,3 +37,5 @@ Tech Stack 是一个浏览器插件，它将展示你正在访问的 Github 仓�
 ## Feedback
 If you have any questions or suggestions, please feel free to contact us in Github Issue.
 
+## Note
+The the open source part is browser Extension. It ensure the security of your data. The data is stored in your browser's local storage. We do not collect any data. But the backend is not open source.
