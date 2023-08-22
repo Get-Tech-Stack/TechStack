@@ -37,5 +37,9 @@ Tech Stack 是一个浏览器拓展，它将展示你正在访问的 Github 仓�
 ## Feedback
 If you have any questions or suggestions, please feel free to contact us in Github Issue.
 
-## Note
-The the open source part is browser Extension. It ensure the security of your data. The data is stored in your browser's local storage. We do not collect any data. But the backend is not open source.
+如果您有任何问题或建议，请随时通过 Github Issue 与我们联系。
+
+## About the TechStack
+TechStack will free forever. But now open source is only one part of the TechStack. Because the Extension is running in user's browser, so we need open source to let user know what we are doing in the extension. It can ensure the extension is safe and reliable.
+
+TechStack 将永远免费。 但现在开源只是TechStack的一部分。 因为扩展是在用户的浏览器中运行的，所以我们需要开源来让用户知道我们在扩展中做了什么。 可以保证分机安全可靠。
