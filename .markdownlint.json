@@ -1,0 +1,6 @@
+{
+    "no-inline-html": {
+        "allowed_elements": ["details", "p", "div", "h1", "strong"]
+    },
+    "line-length": false
+}
