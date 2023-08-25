@@ -1,145 +1,82 @@
-import React, { useState, useEffect } from "react";
-import useSWR from "swr";
-import StackCollect from "./StackCollect";
-import { useTranslation } from "react-i18next";
-import FingerprintJS from "@fingerprintjs/fingerprintjs";
-import Feedback from "components/Feedback/Feedback";
-const VERSION = "1.14";
+import React, { useEffect } from 'react';
+import Category from '../components/Category/Category';
+import Feedback from 'components/Feedback/Feedback';
+import useSWR from 'swr';
+import FingerprintJS from '@fingerprintjs/fingerprintjs';
+import Loading from 'components/Loading/Loading';
+import Failed from 'components/Failed/Failed';
 
-async function fetcher<JSON = any>(
-  input: RequestInfo,
-  init?: RequestInit
-): Promise<JSON> {
-  const res = await fetch(input, { credentials: "include", ...init });
-  return res.json();
+import { useTranslation } from 'react-i18next';
+
+const VERSION = '1.14';
+
+async function fetcher<JSON = any>(input: RequestInfo, init?: RequestInit): Promise<JSON> {
+    const res = await fetch(input, { credentials: 'include', ...init });
+    return res.json();
 }
 interface TechStacksProps {
-  url: string;
+    url: string;
 }
 
 const report = async (id: string) => {
-  //
-  fetch("https://techstack.zeabur.app/report", {
-    method: "POST",
-    credentials: "include",
-    body: JSON.stringify({
-      version: VERSION,
-      id: id,
-    }),
-    headers: {
-      "Content-type": "application/json; charset=UTF-8",
-    },
-  }).catch((err) => {
-    console.log(err);
-  });
+    fetch('https://techstack.zeabur.app/report', {
+        method: 'POST',
+        credentials: 'include',
+        body: JSON.stringify({
+            version: VERSION,
+            id: id,
+        }),
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+        },
+    }).catch((err) => {
+        console.log(err);
+    });
 };
 
 const TechStacks = ({ url }: TechStacksProps) => {
-  const { t } = useTranslation();
+    const { data, error, isLoading } = useSWR(`https://techstack.zeabur.app/repo?url=${url}`, {
+        fetcher: fetcher,
+        refreshInterval: 0,
+        revalidateOnFocus: false,
+    });
 
-  const MAX_PROGRESS = 100;
-  const INCREMENT = 1;
-  const SLOWDOWN_THRESHOLD = 90;
-  const SLOWDOWN_FACTOR = 3;
+    const { t } = useTranslation();
 
-  const [progress, setProgress] = useState(0);
+    // TODO set the report option to false
+    useEffect(() => {
+        const reportVersion = async () => {
+            const fp = await FingerprintJS.load();
 
-  const { data, error, isLoading } = useSWR(
-    `https://techstack.zeabur.app/repo?url=${url}`,
-    {
-      fetcher: fetcher,
-      refreshInterval: 0,
-      revalidateOnFocus: false,
-    }
-  );
+            const { visitorId } = await fp.get();
 
-  // create and set the fingerprint as soon as
-  // the component mounts
-  React.useEffect(() => {
-    const reportVersion = async () => {
-      const fp = await FingerprintJS.load();
+            // report extension version
+            if (sessionStorage.getItem('id') !== visitorId) {
+                report(visitorId);
+                sessionStorage.setItem('id', visitorId);
+            }
+        };
+        reportVersion();
+    }, []);
 
-      const { visitorId } = await fp.get();
+    if (error) return <Failed />;
 
-      // report extension version
-      if (sessionStorage.getItem("id") !== visitorId) {
-        report(visitorId);
-        sessionStorage.setItem("id", visitorId);
-      }
-    };
+    if (isLoading) return <Loading />;
 
-    reportVersion();
-  }, []);
+    const results: any[] = [];
+    Object.entries(data || {}).forEach(([key, value]) => {
+        results.push(<Category name={key} key={key} deps={value} />);
+    });
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (progress < SLOWDOWN_THRESHOLD) {
-        setProgress((prevProgress) => prevProgress + INCREMENT);
-      } else {
-        setProgress(
-          (prevProgress) => prevProgress + INCREMENT / SLOWDOWN_FACTOR
-        );
-      }
-
-      if (progress > MAX_PROGRESS) {
-        setProgress(MAX_PROGRESS);
-      }
-    }, 200);
-
-    return () => clearInterval(interval);
-  }, [progress]);
-
-  if (error)
     return (
-      <div className="techStackRoot">
-        <div>failed to load </div>{" "}
-        {/* <div className="tech-footer">
-                    <a className="tech-footer-feedback" href={mailUrl} target="_blank" rel="noreferrer">
-                        feedback
-                    </a>
-                </div> */}
-      </div>
-    );
-
-  if (isLoading)
-    return (
-      <div className="techStackRoot">
-        <div>
-          <progress
-            id="file"
-            className={`${progress == 100 ? "jump" : ""}`}
-            value={progress}
-            max="100"
-          >
-            {progress}%
-          </progress>
+        <div className="techStackRoot">
+            <div className="stacks">
+                {results.length !== 0 && results}
+                {results.length === 0 && <div>{t('no-found-prompt')}</div>}
+            </div>
+            <Feedback url={url} />
         </div>
-        <div>
-          {progress >= 100 ? "🏃" : ""}
-          {t("loading-prompt")}
-        </div>
-        {/* <div className="tech-footer">
-                    <a className="tech-footer-feedback" href={mailUrl} target="_blank" rel="noreferrer">
-                        feedback
-                    </a>
-                </div> */}
-      </div>
     );
-
-  const results: any[] = [];
-  Object.entries(data || {}).forEach(([key, value]) => {
-    results.push(<StackCollect name={key} key={key} deps={value} />);
-  });
-
-  return (
-    <div className="techStackRoot">
-      <div className="stacks">
-        {results.length !== 0 && results}
-        {results.length === 0 && <div>{t("no-found-prompt")}</div>}
-      </div>
-      <Feedback url={url} />
-    </div>
-  );
 };
 
 export default TechStacks;
