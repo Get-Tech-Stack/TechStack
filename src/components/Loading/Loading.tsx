@@ -30,7 +30,12 @@ const Loading = () => {
     return (
         <div className="techStackRoot">
             <div>
-                <progress id="file" className={`${progress == 100 ? 'jump' : ''}`} value={progress} max="100">
+                <progress
+                    id="file"
+                    className={`${progress == 100 ? 'tech-stack-jump-animation' : ''}`}
+                    value={progress}
+                    max="100"
+                >
                     {progress}%
                 </progress>
             </div>

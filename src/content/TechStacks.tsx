@@ -70,7 +70,7 @@ const TechStacks = ({ url }: TechStacksProps) => {
 
     return (
         <div className="techStackRoot">
-            <div className="stacks">
+            <div className="techstack-category-container">
                 {results.length !== 0 && results}
                 {results.length === 0 && <div>{t('no-found-prompt')}</div>}
             </div>
