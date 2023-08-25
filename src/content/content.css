@@ -1,10 +1,10 @@
-.deps {
+.techstack-deps {
     display: flex;
     flex-wrap: wrap;
     gap: 3px;
 }
 
-.stacks {
+.techstack-category-container {
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -40,7 +40,7 @@
     border-bottom: 1px solid var(--color-border-muted);
 }
 
-@keyframes jump {
+@keyframes jump-animation {
     0% {
         transform: translate3d(0, 0, 0) scale3d(1, 1, 1);
     }
@@ -51,9 +51,9 @@
         transform: translate3d(0, 100%, 0) scale3d(1.5, 0.7, 1);
     }
 }
-.jump {
+.tech-stack-jump-animation {
     transform-origin: 50% 50%;
-    animation: jump 2s linear alternate infinite;
+    animation: jump-animation 2s linear alternate infinite;
 }
 
 .tech-footer {

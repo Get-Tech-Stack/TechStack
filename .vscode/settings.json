@@ -1,13 +1,14 @@
 {
-  "[markdown]": {
-    "editor.formatOnSave": false
-  },
-  "editor.codeActionsOnSave": {
-    "source.fixAll": true
-  },
-  "editor.tabSize": 4,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "editor.formatOnSave": true,
-  "editor.formatOnType": true,
-  "i18n-ally.localesPaths": []
+    "[markdown]": {
+        "editor.formatOnSave": false
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    },
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnType": true,
+    "i18n-ally.localesPaths": [],
+    "cSpell.words": ["techstack"]
 }
