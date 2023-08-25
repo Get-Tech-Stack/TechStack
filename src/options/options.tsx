@@ -1,9 +1,9 @@
 /* global document */
 
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-const Index = () => <div>Hello React!</div>;
+const Index = () => <div>There is no any option now😌</div>;
 
-const root = ReactDOM.createRoot(document.getElementById('display-container')!);
+const root = ReactDOM.createRoot(document.getElementById("display-container")!);
 root.render(<Index />);
