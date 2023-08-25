@@ -32,11 +32,18 @@
       "16": "assets/icons/icon-16.png",
       "48": "assets/icons/icon-48.png"
     },
+    "default_popup": "popup/index.html",
     "default_title": "Teach Stack"
   },
   "web_accessible_resources": [
     {
-      "resources": ["assets/*", "content/*", "options/*", "background/*"],
+      "resources": [
+        "assets/*",
+        "content/*",
+        "options/*",
+        "popup/*",
+        "background/*"
+      ],
       "matches": ["<all_urls>"]
     }
   ]
