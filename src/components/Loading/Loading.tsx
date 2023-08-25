@@ -38,11 +38,6 @@ const Loading = () => {
                 {progress >= 100 ? '🏃' : ''}
                 {t('loading-prompt')}
             </div>
-            {/* <div className="tech-footer">
-                  <a className="tech-footer-feedback" href={mailUrl} target="_blank" rel="noreferrer">
-                      feedback
-                  </a>
-              </div> */}
         </div>
     );
 };
