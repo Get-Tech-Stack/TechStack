@@ -6,7 +6,7 @@
         "baseUrl": "./src",
         "esModuleInterop": true,
         "module": "commonjs",
-        "target": "es5",
+        "target": "es6",
         "allowJs": true,
         "jsx": "react",
         "sourceMap": true,

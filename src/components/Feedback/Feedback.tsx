@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
+import useFireWork from 'react-use-firework';
 
 interface PrivateProps {
     url: string;
@@ -24,6 +25,12 @@ const unlike = async (url: string) => {
 };
 
 const Feedback = ({ url }: PrivateProps) => {
+    const likeRef = useRef(null);
+    const unlikeRef = useRef(null);
+
+    useFireWork(likeRef);
+    useFireWork(unlikeRef);
+
     const [liked, setLiked] = React.useState(false);
 
     const { t } = useTranslation();
@@ -50,10 +57,10 @@ const Feedback = ({ url }: PrivateProps) => {
                 {!liked ? (
                     <>
                         <div>{t('feedback-prompt')}</div>
-                        <div className="cursor-pointer" onClick={() => handleLikeBtnClick(url)}>
+                        <div ref={likeRef} className="cursor-pointer" onClick={() => handleLikeBtnClick(url)}>
                             👍
                         </div>
-                        <div className="cursor-pointer" onClick={() => handleUnlikeBtnClick(url)}>
+                        <div ref={unlikeRef} className="cursor-pointer" onClick={() => handleUnlikeBtnClick(url)}>
                             👎
                         </div>
                     </>

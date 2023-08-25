@@ -3770,6 +3770,11 @@ react-is@^16.13.1:
   resolved "https://registry.npmjs.org/react-is/-/react-is-16.13.1.tgz"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
 
+react-use-firework@^1.0.2:
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/react-use-firework/-/react-use-firework-1.0.2.tgz#bf45f593d2a14b6bd0510bb7d82ed43c164ff26f"
+  integrity sha512-3/hdHy3WlqjkxlSlfBOLrEHGyUuIYYAXU/4J/nW71WuLPeF+6Z3+FhOww39vs6Hyqhxj1vxg9kJnw/aSaYX0UA==
+
 react@^18.2.0:
   version "18.2.0"
   resolved "https://registry.yarnpkg.com/react/-/react-18.2.0.tgz#555bd98592883255fa00de14f1151a917b5d77d5"
