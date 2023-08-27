@@ -1,20 +1,20 @@
-import { ProgressPlugin, DefinePlugin } from "webpack";
-import HtmlWebpackPlugin from "html-webpack-plugin";
-import CopyWebpackPlugin from "copy-webpack-plugin";
-import ZipPlugin from "zip-webpack-plugin";
-import { BundleAnalyzerPlugin } from "webpack-bundle-analyzer";
+import { ProgressPlugin, DefinePlugin } from 'webpack';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
+import ZipPlugin from 'zip-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
-import path from "path";
-import { CleanWebpackPlugin } from "clean-webpack-plugin";
-import ESLintPlugin from "eslint-webpack-plugin";
-import WebpackExtensionManifestPlugin from "webpack-extension-manifest-plugin";
+import path from 'path';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import ESLintPlugin from 'eslint-webpack-plugin';
+import WebpackExtensionManifestPlugin from 'webpack-extension-manifest-plugin';
 
-const ExtReloader = require("webpack-ext-reloader-mv3");
+const ExtReloader = require('webpack-ext-reloader-mv3');
 
-const baseManifestChrome = require("./src/baseManifest_chrome.json");
-const baseManifestFirefox = require("./src/baseManifest_firefox.json");
-const baseManifestOpera = require("./src/baseManifest_opera.json");
-const baseManifestEdge = require("./src/baseManifest_edge.json");
+const baseManifestChrome = require('./src/baseManifest_chrome.json');
+const baseManifestFirefox = require('./src/baseManifest_firefox.json');
+const baseManifestOpera = require('./src/baseManifest_opera.json');
+const baseManifestEdge = require('./src/baseManifest_edge.json');
 
 const baseManifest = {
   chrome: baseManifestChrome,
@@ -23,7 +23,7 @@ const baseManifest = {
   edge: baseManifestEdge,
 };
 
-const dotenv = require("dotenv").config({ path: __dirname + "/.env" });
+const dotenv = require('dotenv').config({ path: __dirname + '/.env' });
 
 interface EnvironmentConfig {
   NODE_ENV: string;
@@ -32,10 +32,10 @@ interface EnvironmentConfig {
 }
 
 export const Directories = {
-  DEV_DIR: "dev",
-  DIST_DIR: "dist",
-  TEMP_DIR: "temp",
-  SRC_DIR: "src",
+  DEV_DIR: 'dev',
+  DIST_DIR: 'dist',
+  TEMP_DIR: 'temp',
+  SRC_DIR: 'src',
 };
 
 /**
@@ -44,17 +44,13 @@ export const Directories = {
  */
 const EnvConfig: EnvironmentConfig = {
   OUTPUT_DIR:
-    process.env.NODE_ENV === "production"
+    process.env.NODE_ENV === 'production'
       ? Directories.TEMP_DIR
-      : process.env.NODE_ENV === "upload"
+      : process.env.NODE_ENV === 'upload'
       ? Directories.DIST_DIR
       : Directories.DEV_DIR,
-  ...(process.env.NODE_ENV
-    ? { NODE_ENV: process.env.NODE_ENV }
-    : { NODE_ENV: "development" }),
-  ...(process.env.TARGET
-    ? { TARGET: process.env.TARGET }
-    : { TARGET: "chrome" }),
+  ...(process.env.NODE_ENV ? { NODE_ENV: process.env.NODE_ENV } : { NODE_ENV: 'development' }),
+  ...(process.env.TARGET ? { TARGET: process.env.TARGET } : { TARGET: 'chrome' }),
 };
 
 /**
@@ -68,25 +64,19 @@ const EnvConfig: EnvironmentConfig = {
 export const getHTMLPlugins = (
   browserDir: string,
   outputDir = Directories.DEV_DIR,
-  sourceDir = Directories.SRC_DIR
+  sourceDir = Directories.SRC_DIR,
 ) => [
   new HtmlWebpackPlugin({
-    title: "Popup",
-    filename: path.resolve(
-      __dirname,
-      `${outputDir}/${browserDir}/popup/index.html`
-    ),
+    title: 'Popup',
+    filename: path.resolve(__dirname, `${outputDir}/${browserDir}/popup/index.html`),
     template: path.resolve(__dirname, `${sourceDir}/popup/index.html`),
-    chunks: ["popup"],
+    chunks: ['popup'],
   }),
   new HtmlWebpackPlugin({
-    title: "Options",
-    filename: path.resolve(
-      __dirname,
-      `${outputDir}/${browserDir}/options/index.html`
-    ),
+    title: 'Options',
+    filename: path.resolve(__dirname, `${outputDir}/${browserDir}/options/index.html`),
     template: path.resolve(__dirname, `${sourceDir}/options/index.html`),
-    chunks: ["options"],
+    chunks: ['options'],
   }),
 ];
 
@@ -98,7 +88,7 @@ export const getHTMLPlugins = (
  */
 export const getDefinePlugins = (config = {}) => [
   new DefinePlugin({
-    "process.env": JSON.stringify({ ...config, ...(dotenv.parsed ?? {}) }),
+    'process.env': JSON.stringify({ ...config, ...(dotenv.parsed ?? {}) }),
   }),
 ];
 
@@ -109,13 +99,10 @@ export const getDefinePlugins = (config = {}) => [
  * @param outputDir
  * @returns
  */
-export const getOutput = (
-  browserDir: string,
-  outputDir = Directories.DEV_DIR
-) => {
+export const getOutput = (browserDir: string, outputDir = Directories.DEV_DIR) => {
   return {
     path: path.resolve(process.cwd(), `${outputDir}/${browserDir}`),
-    filename: "[name]/[name].js",
+    filename: '[name]/[name].js',
   };
 };
 
@@ -145,7 +132,7 @@ export const getEntry = (sourceDir = Directories.SRC_DIR) => {
 export const getCopyPlugins = (
   browserDir: string,
   outputDir = Directories.DEV_DIR,
-  sourceDir = Directories.SRC_DIR
+  sourceDir = Directories.SRC_DIR,
 ) => {
   return [
     new CopyWebpackPlugin({
@@ -174,15 +161,12 @@ export const getCopyPlugins = (
  * @param outputDir
  * @returns
  */
-export const getZipPlugins = (
-  browserDir: string,
-  outputDir = Directories.DIST_DIR
-) => {
+export const getZipPlugins = (browserDir: string, outputDir = Directories.DIST_DIR) => {
   return [
     new ZipPlugin({
       path: path.resolve(process.cwd(), `${outputDir}/${browserDir}`),
       filename: browserDir,
-      extension: "zip",
+      extension: 'zip',
       fileOptions: {
         mtime: new Date(),
         mode: 0o100664,
@@ -204,7 +188,7 @@ export const getZipPlugins = (
 export const getAnalyzerPlugins = () => {
   return [
     new BundleAnalyzerPlugin({
-      analyzerMode: "server",
+      analyzerMode: 'server',
     }),
   ];
 };
@@ -218,9 +202,7 @@ export const getAnalyzerPlugins = () => {
 export const getCleanWebpackPlugins = (...dirs: string[]) => {
   return [
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: [
-        ...dirs?.map((dir) => path.join(process.cwd(), `${dir}`) ?? []),
-      ],
+      cleanOnceBeforeBuildPatterns: [...dirs?.map((dir) => path.join(process.cwd(), `${dir}`) ?? [])],
       cleanStaleWebpackAssets: false,
       verbose: true,
     }),
@@ -235,18 +217,18 @@ export const getCleanWebpackPlugins = (...dirs: string[]) => {
 export const getResolves = () => {
   return {
     alias: {
-      utils: path.resolve(__dirname, "./src/utils/"),
-      popup: path.resolve(__dirname, "./src/popup/"),
-      background: path.resolve(__dirname, "./src/background/"),
-      options: path.resolve(__dirname, "./src/options/"),
-      content: path.resolve(__dirname, "./src/content/"),
-      assets: path.resolve(__dirname, "./src/assets/"),
-      components: path.resolve(__dirname, "./src/components/"),
-      types: path.resolve(__dirname, "./src/types/"),
-      hooks: path.resolve(__dirname, "./src/hooks/"),
-      "@redux": path.resolve(__dirname, "./src/@redux/"),
+      utils: path.resolve(__dirname, './src/utils/'),
+      popup: path.resolve(__dirname, './src/popup/'),
+      background: path.resolve(__dirname, './src/background/'),
+      options: path.resolve(__dirname, './src/options/'),
+      content: path.resolve(__dirname, './src/content/'),
+      assets: path.resolve(__dirname, './src/assets/'),
+      components: path.resolve(__dirname, './src/components/'),
+      types: path.resolve(__dirname, './src/types/'),
+      hooks: path.resolve(__dirname, './src/hooks/'),
+      '@redux': path.resolve(__dirname, './src/@redux/'),
     },
-    extensions: [".js", ".jsx", ".ts", ".tsx"],
+    extensions: ['.js', '.jsx', '.ts', '.tsx'],
   };
 };
 
@@ -302,9 +284,9 @@ export const getExtensionReloaderPlugins = () => {
       port: 9090,
       reloadPage: true,
       entries: {
-        contentScript: ["content"],
-        background: "background",
-        extensionPage: ["popup", "options"],
+        contentScript: ['content'],
+        background: 'background',
+        extensionPage: ['popup', 'options'],
       },
     }),
   ];

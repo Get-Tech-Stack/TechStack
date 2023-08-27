@@ -1,7 +1,7 @@
 {
   "name": "Tech Stack: Show Github Repo Tech Stack",
   "author": "CorrectRoadH",
-  "version": "1.14",
+  "version": "1.15",
   "manifest_version": 2,
   "description": "Show a Github repo's tech stack",
   "icons": {
@@ -30,13 +30,7 @@
   "background": {
     "scripts": ["background/background.js"]
   },
-  "permissions": [
-    "*://*.github.com/*",
-    "*://*.zeabur.app/",
-    "activeTab",
-    "webRequest",
-    "tabs"
-  ],
+  "permissions": ["*://*.github.com/*", "*://*.zeabur.app/", "activeTab", "webRequest", "tabs"],
   "browser_specific_settings": {
     "gecko": {
       "strict_min_version": "54.0a1"
