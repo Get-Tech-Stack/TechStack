@@ -1,11 +1,13 @@
 ![LOGO](img/logo.png)
 
 # What is Tech Stack
-Tech Stack is a browser extension that will display the tech stack of the Github repository you are visiting.
+Tech Stack is a browser extension that will display the tech stack of the GitHub repository you are visiting.
 
-Tech Stack 是一个浏览器拓展，它将展示你正在访问的 Github 仓库的技术栈。
+Tech Stack 是一个浏览器拓展，它将展示你正在访问的 GitHub 仓库的技术栈。
+
 
 Discuss in [Discord](https://discord.gg/hEXF9utNHH) / [Telegram](https://t.me/gettechstack) 
+
 
 ![Alt text](img/1.png)
 ![Alt text](img/2.png)
@@ -37,9 +39,9 @@ Discuss in [Discord](https://discord.gg/hEXF9utNHH) / [Telegram](https://t.me/ge
 
 
 ## Feedback
-If you have any questions or suggestions, please feel free to contact us in Github Issue.
+If you have any questions or suggestions, please feel free to contact us in GitHub Issue.
 
-如果您有任何问题或建议，请随时通过 Github Issue 与我们联系。
+如果您有任何问题或建议，请随时通过 GitHub Issue 与我们联系。
 
 ## About the TechStack
 TechStack will free forever. But now open source is only one part of the TechStack. Because the Extension is running in user's browser, so we need open source to let user know what we are doing in the extension. It can ensure Don't be evil.
