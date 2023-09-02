@@ -18,7 +18,7 @@ interface TechStacksProps {
   url: string;
 }
 
-const report = async (id: string) => {
+const reportVersionRequest = async (id: string) => {
   fetch('https://techstack.zeabur.app/report', {
     method: 'POST',
     credentials: 'include',
@@ -52,7 +52,7 @@ const TechStacks = ({ url }: TechStacksProps) => {
 
       // report extension version
       if (sessionStorage.getItem('id') !== visitorId) {
-        report(visitorId);
+        reportVersionRequest(visitorId);
         sessionStorage.setItem('id', visitorId);
       }
     };
