@@ -11,9 +11,6 @@
     "128": "assets/icons/icon-128.png"
   },
   "default_locale": "en",
-  "browser_action": {
-    "default_popup": "popup.html"
-  },
   "options_ui": {
     "page": "options/index.html",
     "open_in_tab": true
@@ -24,7 +21,7 @@
       "js": ["content/content.js"],
       "css": ["content/content.css"],
       "all_frames": true,
-      "run_at": "document_end"
+      "run_at": "document_start"
     }
   ],
   "background": {
