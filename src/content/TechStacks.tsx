@@ -2,13 +2,12 @@ import React, { useEffect } from 'react';
 import Category from '../components/Category/Category';
 import Feedback from 'components/Feedback/Feedback';
 import useSWR from 'swr';
-import FingerprintJS from '@fingerprintjs/fingerprintjs';
 import Loading from 'components/Loading/Loading';
 import Failed from 'components/Failed/Failed';
 
 import { useTranslation } from 'react-i18next';
 
-const VERSION = '1.15';
+const VERSION = '1.16';
 
 async function fetcher<JSON = any>(input: RequestInfo, init?: RequestInit): Promise<JSON> {
   const res = await fetch(input, { credentials: 'include', ...init });
@@ -46,9 +45,10 @@ const TechStacks = ({ url }: TechStacksProps) => {
   // TODO set the report option to false
   useEffect(() => {
     const reportVersion = async () => {
-      const fp = await FingerprintJS.load();
+      // const fp = await FingerprintJS.load();
 
-      const { visitorId } = await fp.get();
+      // const { visitorId } = await fp.get();
+      const visitorId = '1.16user';
 
       // report extension version
       if (sessionStorage.getItem('id') !== visitorId) {
