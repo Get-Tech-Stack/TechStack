@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { motion } from 'framer-motion';
+
 import Category from '../components/Category/Category';
 import Feedback from 'components/Feedback/Feedback';
 import useSWR from 'swr';
@@ -70,11 +72,17 @@ const TechStacks = ({ url }: TechStacksProps) => {
 
   return (
     <div className="techStackRoot">
-      <div className="techstack-category-container">
-        {results.length !== 0 && results}
-        {results.length === 0 && <div>{t('no-found-prompt')}</div>}
-      </div>
-      <Feedback url={url} />
+      <motion.div
+        initial={{ opacity: 0.8, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.25 }}
+      >
+        <div className="techstack-category-container">
+          {results.length !== 0 && results}
+          {results.length === 0 && <div>{t('no-found-prompt')}</div>}
+        </div>
+        <Feedback url={url} />
+      </motion.div>
     </div>
   );
 };
