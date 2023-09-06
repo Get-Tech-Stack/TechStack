@@ -1,5 +1,6 @@
 /* global document */
-
+import { Transition } from 'react-transition-group';
+import { useRef } from 'react';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { runtime } from 'webextension-polyfill';

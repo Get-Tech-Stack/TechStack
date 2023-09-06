@@ -32,6 +32,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.8.1",
     "dotenv": "^16.3.1",
+    "framer-motion": "^10.16.4",
     "html-webpack-plugin": "^5.5.3",
     "i18next": "^23.4.4",
     "i18next-browser-languagedetector": "^7.1.0",
