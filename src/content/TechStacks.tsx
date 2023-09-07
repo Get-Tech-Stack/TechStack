@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-
+import FingerprintJS from '@fingerprintjs/fingerprintjs';
 import Category from '../components/Category/Category';
 import Feedback from 'components/Feedback/Feedback';
 import useSWR from 'swr';
@@ -47,10 +47,9 @@ const TechStacks = ({ url }: TechStacksProps) => {
   // TODO set the report option to false
   useEffect(() => {
     const reportVersion = async () => {
-      // const fp = await FingerprintJS.load();
+      const fp = await FingerprintJS.load();
 
-      // const { visitorId } = await fp.get();
-      const visitorId = '1.16user';
+      const { visitorId } = await fp.get();
 
       // report extension version
       if (sessionStorage.getItem('id') !== visitorId) {

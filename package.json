@@ -26,6 +26,7 @@
   },
   "author": "Web Dev",
   "dependencies": {
+    "@fingerprintjs/fingerprintjs": "v3.3.4",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^11.0.0",
     "core-js": "^3.32.0",

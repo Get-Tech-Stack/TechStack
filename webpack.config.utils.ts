@@ -138,6 +138,10 @@ export const getCopyPlugins = (
     new CopyWebpackPlugin({
       patterns: [
         {
+          from: path.resolve(__dirname, `${sourceDir}/options/options.css`),
+          to: path.resolve(__dirname, `${outputDir}/${browserDir}/options`),
+        },
+        {
           from: path.resolve(__dirname, `${sourceDir}/content/content.css`),
           to: path.resolve(__dirname, `${outputDir}/${browserDir}/content`),
         },
