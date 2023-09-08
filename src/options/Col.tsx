@@ -2,13 +2,13 @@ import React from 'react';
 
 interface ColProps {
   title: string;
+  children: React.ReactNode;
 }
-const Col = ({}: ColProps) => {
+const Col = ({ title, children }: ColProps) => {
   return (
-    <div className="tackstack-container">
-      <h2 className="techstack-container-title">Tech Stack</h2>
-
-      <button className="techstack-save-btn">Save</button>
+    <div className="techstack-container">
+      <h2 className="techstack-container-title">{title}</h2>
+      <div className="techstack-container-children">{children}</div>
     </div>
   );
 };
