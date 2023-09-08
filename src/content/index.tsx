@@ -25,6 +25,10 @@ async function injectComponent() {
     position = 0;
   }
 
+  if (result['techstack_position'] === 'middle') {
+    position = 1;
+  }
+
   if (result['techstack_position'] === 'bottom') {
     position = 3;
   }

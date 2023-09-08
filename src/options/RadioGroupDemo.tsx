@@ -3,15 +3,16 @@ import * as RadioGroup from '@radix-ui/react-radio-group';
 
 interface ToggleGroupProps {
   title: string;
-  subTitle: string;
+  // subTitle: string;
 
   storageKey: string;
   defaultValue: string;
   options: string[];
   labels: string[];
+  imgLink: string[];
 }
 
-const RadioGroupDemo = ({ storageKey, title, defaultValue, options, labels }: ToggleGroupProps) => {
+const RadioGroupDemo = ({ storageKey, title, defaultValue, options, labels, imgLink }: ToggleGroupProps) => {
   const [value, setValue] = useState('default');
 
   useEffect(() => {
@@ -52,6 +53,10 @@ const RadioGroupDemo = ({ storageKey, title, defaultValue, options, labels }: To
           );
         })}
       </RadioGroup.Root>
+
+      <div className="techstack-img-container">
+        <img className="techstack-img" src={imgLink[options.indexOf(value)]}></img>
+      </div>
     </form>
   );
 };

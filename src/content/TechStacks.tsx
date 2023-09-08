@@ -42,6 +42,12 @@ const TechStacks = ({ url }: TechStacksProps) => {
     revalidateOnFocus: false,
   });
 
+  const [collapsed, setCollapsed] = React.useState(false);
+
+  const open = () => {
+    setCollapsed(true);
+  };
+
   const { t } = useTranslation();
 
   useEffect(() => {
@@ -73,7 +79,18 @@ const TechStacks = ({ url }: TechStacksProps) => {
   });
 
   return (
-    <div className="techStackRoot">
+    <div
+      className="techStackRoot"
+      style={collapsed ? { height: 'auto', overflow: 'visible' } : { height: '300px', overflow: 'hidden' }}
+    >
+      {!collapsed && (
+        <div className="techstack-collapsed-container">
+          <div className="techstack-open" onClick={() => open()}>
+            展开
+          </div>
+        </div>
+      )}
+
       <motion.div
         initial={{ opacity: 0.8, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
