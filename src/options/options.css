@@ -15,10 +15,7 @@ body {
   --Layout-gutter: 16px;
   --Layout-sidebar-width: 256px;
   box-sizing: border-box;
-  padding-left: 20px;
-  margin: 15px 0;
   vertical-align: middle;
-  margin-top: 0 !important;
 }
 .techstack-checkbox {
   justify-content: flex-start;
@@ -181,4 +178,14 @@ button {
 .ToggleGroupItem:focus {
   position: relative;
   box-shadow: 0 0 0 2px black;
+}
+
+.techstack-container {
+  padding-left: 20px;
+  margin: 15px 0;
+}
+
+.techstack-container-children {
+  padding-left: 20px;
+  margin: 15px 0;
 }

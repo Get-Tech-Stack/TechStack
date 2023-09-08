@@ -1,10 +1,10 @@
 import React from 'react';
 
-interface ColProps {
+interface ContainerProps {
   title: string;
   children: React.ReactNode;
 }
-const Col = ({ title, children }: ColProps) => {
+const Container = ({ title, children }: ContainerProps) => {
   return (
     <div className="techstack-container">
       <h2 className="techstack-container-title">{title}</h2>
@@ -13,4 +13,4 @@ const Col = ({ title, children }: ColProps) => {
   );
 };
 
-export default Col;
+export default Container;

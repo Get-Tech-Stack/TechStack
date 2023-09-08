@@ -44,20 +44,23 @@ const TechStacks = ({ url }: TechStacksProps) => {
 
   const { t } = useTranslation();
 
-  // TODO set the report option to false
   useEffect(() => {
     const reportVersion = async () => {
       const fp = await FingerprintJS.load();
 
       const { visitorId } = await fp.get();
-
       // report extension version
       if (sessionStorage.getItem('id') !== visitorId) {
         reportVersionRequest(visitorId);
         sessionStorage.setItem('id', visitorId);
       }
     };
-    reportVersion();
+
+    chrome.storage.sync.get(['allow_report_version']).then((result) => {
+      if (result['allow_report_version']) {
+        reportVersion();
+      }
+    });
   }, []);
 
   if (error) return <Failed />;
