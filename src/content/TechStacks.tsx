@@ -9,7 +9,7 @@ import Failed from 'components/Failed/Failed';
 
 import { useTranslation } from 'react-i18next';
 
-const VERSION = '1.16';
+const VERSION = '1.17';
 
 async function fetcher<JSON = any>(input: RequestInfo, init?: RequestInit): Promise<JSON> {
   const res = await fetch(input, { credentials: 'include', ...init });
