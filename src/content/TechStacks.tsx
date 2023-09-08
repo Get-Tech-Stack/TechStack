@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useLayoutEffect } from 'react';
+import React, { useEffect, useRef, useLayoutEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import FingerprintJS from '@fingerprintjs/fingerprintjs';
 import Category from '../components/Category/Category';
@@ -44,12 +44,13 @@ const TechStacks = ({ url }: TechStacksProps) => {
 
   const techstackRef = useRef(null);
 
-  const [collapsed, setCollapsed] = React.useState(false);
-  const [height, setHeight] = React.useState(0);
-  const [reload, setReload] = React.useState(1);
+  // 展开
+  const [expand, setExpand] = useState(false);
+  const [height, setHeight] = useState(0);
+  const [reload, setReload] = useState(1);
 
   const open = () => {
-    setCollapsed(true);
+    setExpand(true);
   };
 
   const { t } = useTranslation();
@@ -66,18 +67,19 @@ const TechStacks = ({ url }: TechStacksProps) => {
       }
     };
 
-    chrome.storage.sync.get(['auto_collapsed']).then((result) => {
-      if (result['auto_collapsed']) {
-        setCollapsed(false);
-      } else {
-        setCollapsed(true);
+    chrome.storage.sync.get(['allow_report_version']).then((result) => {
+      if (result['allow_report_version']) {
+        reportVersion();
       }
     });
   }, []);
 
   useEffect(() => {
-    chrome.storage.sync.get(['allow_report_version']).then((result) => {
-      if (result['allow_report_version']) {
+    chrome.storage.sync.get(['auto_collapsed']).then((result) => {
+      if (result['auto_collapsed']) {
+        setExpand(false);
+      } else {
+        setExpand(true);
       }
     });
   }, []);
@@ -106,12 +108,12 @@ const TechStacks = ({ url }: TechStacksProps) => {
     <div
       className="techStackRoot"
       ref={techstackRef}
-      style={collapsed ? { height: 'auto', overflow: 'visible' } : { maxHeight: '450px', overflow: 'hidden' }}
+      style={expand ? { height: 'auto', overflow: 'visible' } : { maxHeight: '450px', overflow: 'hidden' }}
     >
-      {!collapsed && !(height < 450) && (
+      {!expand && !(height < 450) && (
         <div className="techstack-collapsed-container">
           <div className="techstack-open" onClick={() => open()}>
-            展开
+            {t('expand-all')}
           </div>
         </div>
       )}
