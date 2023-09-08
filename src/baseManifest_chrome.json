@@ -23,7 +23,7 @@
   "background": {
     "service_worker": "background/background.js"
   },
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "storage"],
   "options_ui": {
     "page": "options/index.html",
     "open_in_tab": true
