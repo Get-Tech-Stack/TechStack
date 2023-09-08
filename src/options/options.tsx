@@ -27,7 +27,7 @@ const Index = () => {
           title={t('auto-collapse')}
           subTitle={t('auto-collapse-more')}
           storageKey="auto_collapsed"
-          defaultValue={false}
+          defaultValue={true}
         />
         <Check
           title={t('enable-feedback')}

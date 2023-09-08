@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useLayoutEffect } from 'react';
 import { motion } from 'framer-motion';
 import FingerprintJS from '@fingerprintjs/fingerprintjs';
 import Category from '../components/Category/Category';
@@ -42,7 +42,11 @@ const TechStacks = ({ url }: TechStacksProps) => {
     revalidateOnFocus: false,
   });
 
+  const techstackRef = useRef(null);
+
   const [collapsed, setCollapsed] = React.useState(false);
+  const [height, setHeight] = React.useState(0);
+  const [reload, setReload] = React.useState(1);
 
   const open = () => {
     setCollapsed(true);
@@ -62,12 +66,29 @@ const TechStacks = ({ url }: TechStacksProps) => {
       }
     };
 
-    chrome.storage.sync.get(['allow_report_version']).then((result) => {
-      if (result['allow_report_version']) {
-        reportVersion();
+    chrome.storage.sync.get(['auto_collapsed']).then((result) => {
+      if (result['auto_collapsed']) {
+        setCollapsed(false);
+      } else {
+        setCollapsed(true);
       }
     });
   }, []);
+
+  useEffect(() => {
+    chrome.storage.sync.get(['allow_report_version']).then((result) => {
+      if (result['allow_report_version']) {
+      }
+    });
+  }, []);
+
+  useLayoutEffect(() => {
+    const height = techstackRef?.current?.offsetHeight;
+    if (!height) {
+      return;
+    }
+    setHeight(height);
+  }, [reload]);
 
   if (error) return <Failed />;
 
@@ -78,12 +99,16 @@ const TechStacks = ({ url }: TechStacksProps) => {
     results.push(<Category name={key} key={key} deps={value} />);
   });
 
+  if (reload === 1) {
+    setReload(2);
+  }
   return (
     <div
       className="techStackRoot"
-      style={collapsed ? { height: 'auto', overflow: 'visible' } : { height: '300px', overflow: 'hidden' }}
+      ref={techstackRef}
+      style={collapsed ? { height: 'auto', overflow: 'visible' } : { maxHeight: '450px', overflow: 'hidden' }}
     >
-      {!collapsed && (
+      {!collapsed && !(height < 450) && (
         <div className="techstack-collapsed-container">
           <div className="techstack-open" onClick={() => open()}>
             展开
