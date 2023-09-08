@@ -13,12 +13,23 @@ import './i18n';
 
 runtime.onMessage.addListener(MessageListener);
 
-function injectComponent() {
+async function injectComponent() {
   console.log('Tech-Stack: https://github.com/Get-Tech-Stack/TechStack');
 
   const url = window.location.href;
 
-  const dom = document.getElementsByClassName('BorderGrid-cell')[0];
+  const result = await chrome.storage.sync.get(['techstack_position']);
+  let position = 0;
+
+  if (result['techstack_position'] === 'top') {
+    position = 0;
+  }
+
+  if (result['techstack_position'] === 'bottom') {
+    position = 3;
+  }
+
+  const dom = document.getElementsByClassName('BorderGrid-cell')[position];
 
   const techStack = `<h2 class="mb-3 h4">Tech Stack</h2>
                         <div class="my-3">
