@@ -42,12 +42,13 @@ const TechStacks = ({ url }: TechStacksProps) => {
     revalidateOnFocus: false,
   });
 
-  const techstackRef = useRef(null);
+  const techstackRef = useRef<any>(null);
 
-  // 展开
   const [expand, setExpand] = useState(false);
   const [height, setHeight] = useState(0);
-  const [reload, setReload] = useState(1);
+
+  // the status is to renew get the height of the techstack container
+  const [loadStatus, setLoadStatus] = useState(1);
 
   const open = () => {
     setExpand(true);
@@ -90,7 +91,7 @@ const TechStacks = ({ url }: TechStacksProps) => {
       return;
     }
     setHeight(height);
-  }, [reload]);
+  }, [loadStatus]);
 
   if (error) return <Failed />;
 
@@ -101,8 +102,8 @@ const TechStacks = ({ url }: TechStacksProps) => {
     results.push(<Category name={key} key={key} deps={value} />);
   });
 
-  if (reload === 1) {
-    setReload(2);
+  if (loadStatus === 1) {
+    setLoadStatus(2);
   }
   return (
     <div
