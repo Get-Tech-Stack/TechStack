@@ -15,8 +15,9 @@ const Index = () => {
       <Container title="通常">
         <Check title="允许报告版本" subTitle="报告版本" storageKey="allow_report_version" defaultValue={true} />
       </Container>
-      <Container title="技术栈">
+      <Container title="界面">
         <Check title="自动折叠" subTitle="当技术栈过多时折叠技术栈" storageKey="auto_collapsed" defaultValue={false} />
+        <Check title="显示反馈" subTitle="当技术栈过多时折叠技术栈" storageKey="enable_feedback" defaultValue={true} />
         <RadioGroupDemo
           title="技术栈的位置"
           subTitle="技术栈的位置"
@@ -26,6 +27,7 @@ const Index = () => {
           storageKey="techstack_position"
         />
       </Container>
+
       {/* <MyRadioGroup /> */}
       {/* <ToggleGroupDemo /> */}
     </div>

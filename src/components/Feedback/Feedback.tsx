@@ -28,6 +28,8 @@ const Feedback = ({ url }: PrivateProps) => {
   const likeRef = useRef(null);
   const unlikeRef = useRef(null);
 
+  const [enableFeedback, setEnableFeedback] = React.useState(true);
+
   useFireWork(likeRef);
   useFireWork(unlikeRef);
 
@@ -50,27 +52,35 @@ const Feedback = ({ url }: PrivateProps) => {
     url +
     "%5D&body=What's%20the%20problem%3F%0D%0A%0D%0AAny%20suggestions%3F";
 
-  return (
-    <div className="tech-footer">
-      <div className="tech-feedback">
-        {!liked ? (
-          <>
-            <div>{t('feedback-prompt')}</div>
-            <div ref={likeRef} className="cursor-pointer" onClick={() => handleLikeBtnClick(url)}>
-              👍
-            </div>
-            <div ref={unlikeRef} className="cursor-pointer" onClick={() => handleUnlikeBtnClick(url)}>
-              👎
-            </div>
-          </>
-        ) : (
-          <div>{t('feedback-thank')}</div>
-        )}
+  chrome.storage.sync.get(['enable_feedback']).then((result) => {
+    setEnableFeedback(result['enable_feedback']);
+  });
+
+  if (enableFeedback) {
+    return (
+      <div className="tech-footer">
+        <div className="tech-feedback">
+          {!liked ? (
+            <>
+              <div>{t('feedback-prompt')}</div>
+              <div ref={likeRef} className="cursor-pointer" onClick={() => handleLikeBtnClick(url)}>
+                👍
+              </div>
+              <div ref={unlikeRef} className="cursor-pointer" onClick={() => handleUnlikeBtnClick(url)}>
+                👎
+              </div>
+            </>
+          ) : (
+            <div>{t('feedback-thank')}</div>
+          )}
+        </div>
+        <a className="tech-footer-feedback" href={mailUrl} target="_blank" rel="noreferrer">
+          feedback
+        </a>
       </div>
-      <a className="tech-footer-feedback" href={mailUrl} target="_blank" rel="noreferrer">
-        feedback
-      </a>
-    </div>
-  );
+    );
+  } else {
+    return <div></div>;
+  }
 };
 export default Feedback;
