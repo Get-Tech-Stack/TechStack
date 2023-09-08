@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import * as Switch from '@radix-ui/react-switch';
 
 interface CheckProps {
   title: string;
@@ -27,11 +28,24 @@ const Check = ({ title, subTitle, storageKey: storageKey, defaultValue }: CheckP
   };
 
   return (
-    <div className="techstack-checkbox-root">
-      <input className="techstack-checkbox" type="checkbox" onChange={handleCheckboxClick} checked={value} />
-      <label className="techstack-checkbox-title-primary">{title}</label>
-      <span className="techstack-checkbox-title-second">{subTitle}</span>
-    </div>
+    <form>
+      <div className="techstack-checkbox-root">
+        <label className="techstack-checkbox-title-primary">{title}</label>
+        <div className="techstack-checkbox">
+          <Switch.Root className="SwitchRoot" id={storageKey} checked={value} onCheckedChange={handleCheckboxClick}>
+            <Switch.Thumb className="SwitchThumb" />
+          </Switch.Root>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <label className="Label" htmlFor={storageKey} style={{ paddingRight: 15 }}>
+              {subTitle}
+            </label>
+          </div>
+
+          {/* <span className="techstack-checkbox-title-second"></span> */}
+        </div>
+      </div>
+      {/* <input className="techstack-checkbox" type="checkbox" onChange={handleCheckboxClick} checked={value} /> */}
+    </form>
   );
 };
 
