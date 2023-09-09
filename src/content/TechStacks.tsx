@@ -9,7 +9,7 @@ import Failed from 'components/Failed/Failed';
 
 import { useTranslation } from 'react-i18next';
 
-const VERSION = '1.17';
+const VERSION = '1.20';
 
 async function fetcher<JSON = any>(input: RequestInfo, init?: RequestInit): Promise<JSON> {
   const res = await fetch(input, { credentials: 'include', ...init });
@@ -112,7 +112,7 @@ const TechStacks = ({ url }: TechStacksProps) => {
       style={expand ? { height: 'auto', overflow: 'visible' } : { maxHeight: '450px', overflow: 'hidden' }}
     >
       {!expand && !(height < 450) && (
-        <div className="techstack-collapsed-container">
+        <div className={`techstack-collapsed-container`}>
           <div className="techstack-open" onClick={() => open()}>
             {t('expand-all')}
           </div>
@@ -120,9 +120,9 @@ const TechStacks = ({ url }: TechStacksProps) => {
       )}
 
       <motion.div
-        initial={{ opacity: 0.8, scale: 0.8 }}
+        initial={{ opacity: 0.9, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.25 }}
+        transition={{ duration: 0.1 }}
       >
         <div className="techstack-category-container">
           {results.length !== 0 && results}
