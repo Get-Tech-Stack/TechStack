@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import * as Switch from '@radix-ui/react-switch';
+import storage from '../utils/storage';
 
 interface CheckProps {
   title: string;
@@ -11,9 +12,9 @@ interface CheckProps {
 const Check = ({ title, subTitle, storageKey: storageKey, defaultValue }: CheckProps) => {
   const [value, setValue] = React.useState(false);
   useEffect(() => {
-    chrome.storage.sync.get([storageKey]).then((result) => {
+    storage.get([storageKey]).then((result) => {
       if (result[storageKey] === undefined) {
-        chrome.storage.sync.set({ [storageKey]: defaultValue });
+        storage.set({ [storageKey]: defaultValue });
         setValue(defaultValue);
       } else {
         setValue(result[storageKey]);
@@ -23,8 +24,7 @@ const Check = ({ title, subTitle, storageKey: storageKey, defaultValue }: CheckP
 
   const handleCheckboxClick = () => {
     setValue(!value);
-    chrome.storage.sync.set({ [storageKey]: !value });
-    console.log(`set ${storageKey} to ${!value}`);
+    storage.set({ [storageKey]: !value });
   };
 
   return (
@@ -40,11 +40,8 @@ const Check = ({ title, subTitle, storageKey: storageKey, defaultValue }: CheckP
               {subTitle}
             </label>
           </div>
-
-          {/* <span className="techstack-checkbox-title-second"></span> */}
         </div>
       </div>
-      {/* <input className="techstack-checkbox" type="checkbox" onChange={handleCheckboxClick} checked={value} /> */}
     </form>
   );
 };

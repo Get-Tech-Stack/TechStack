@@ -8,6 +8,7 @@ import Failed from 'components/Failed/Failed';
 
 import { useTranslation } from 'react-i18next';
 import AnimateHeight, { Height } from 'react-animate-height';
+import storage from '../utils/storage';
 
 const VERSION = '1.20';
 
@@ -68,7 +69,7 @@ const TechStacks = ({ url }: TechStacksProps) => {
       }
     };
 
-    chrome.storage.sync.get(['allow_report_version']).then((result) => {
+    storage.get(['allow_report_version']).then((result) => {
       if (result['allow_report_version']) {
         reportVersion();
       }
@@ -76,7 +77,7 @@ const TechStacks = ({ url }: TechStacksProps) => {
   }, []);
 
   useEffect(() => {
-    chrome.storage.sync.get(['auto_collapsed']).then((result) => {
+    storage.get(['auto_collapsed']).then((result) => {
       if (result['auto_collapsed']) {
         setExpand(false);
       } else {
