@@ -1,4 +1,8 @@
 ![LOGO](img/logo.png)
+<p align="center">
+    <img src="https://github.com/Get-Tech-Stack/TechStack/blob/main/img/logo.png" height="128"/></a>
+</p>
+
 
 # What is Tech Stack
 Tech Stack is a browser extension that will display the tech stack of the GitHub repository you are visiting.
