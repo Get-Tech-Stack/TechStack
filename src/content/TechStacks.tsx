@@ -134,10 +134,10 @@ const TechstackAnimation = ({ url }: TechStacksProps) => {
 
   useEffect(() => {
     const resizeObserver = new ResizeObserver(() => {
-      setHeight(contentDiv.current.clientHeight);
+      setHeight(contentDiv?.current?.clientHeight || 'auto');
     });
 
-    resizeObserver.observe(contentDiv.current);
+    resizeObserver.observe(contentDiv?.current || document.body);
 
     return () => resizeObserver.disconnect();
   }, []);
