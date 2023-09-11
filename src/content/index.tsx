@@ -7,6 +7,7 @@ import TechStacks from './TechStacks';
 import isGithubRepoPage from './isGithubRepoPage';
 
 import PrivateRepo from 'components/PrivateRepo/PrivateRepo';
+import storage from '../utils/storage';
 
 // import "./content.css";
 import './i18n';
@@ -18,7 +19,7 @@ async function injectComponent() {
 
   const url = window.location.href;
 
-  const result = await chrome.storage.sync.get(['techstack_position']);
+  const result = await storage.get(['techstack_position']);
   let position = 0;
 
   if (result['techstack_position'] === 'top') {
@@ -74,7 +75,7 @@ async function injectComponent() {
   }
 }
 
-window.addEventListener('reject', (event: any) => {
+window.addEventListener('reject', () => {
   const url = window.location.href;
   // to verify the url is github repo page
   // if url like https://github.com/Gepsonka/TDK in regex

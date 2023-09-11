@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as RadioGroup from '@radix-ui/react-radio-group';
+import storage from '../utils/storage';
 
 interface ToggleGroupProps {
   title: string;
@@ -16,9 +17,9 @@ const RadioGroupDemo = ({ storageKey, title, defaultValue, options, labels, imgL
   const [value, setValue] = useState('default');
 
   useEffect(() => {
-    chrome.storage.sync.get([storageKey]).then((result) => {
+    storage.get([storageKey]).then((result) => {
       if (result[storageKey] === undefined) {
-        chrome.storage.sync.set({ [storageKey]: defaultValue });
+        storage.set({ [storageKey]: defaultValue });
         setValue(defaultValue);
       } else {
         setValue(result[storageKey]);
@@ -27,7 +28,7 @@ const RadioGroupDemo = ({ storageKey, title, defaultValue, options, labels, imgL
   }, []);
 
   const handleGroupChange = (value: string) => {
-    chrome.storage.sync.set({ [storageKey]: value });
+    storage.set({ [storageKey]: value });
     setValue(value);
   };
   return (

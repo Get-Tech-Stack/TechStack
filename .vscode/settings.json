@@ -10,5 +10,5 @@
   "editor.formatOnSave": true,
   "editor.formatOnType": true,
   "i18n-ally.localesPaths": [],
-  "cSpell.words": ["fingerprintjs", "techstack"]
+  "cSpell.words": ["fingerprintjs", "techstack", "webextension"]
 }

@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import useFireWork from 'react-use-firework';
+import storage from '../../utils/storage';
 
 interface PrivateProps {
   url: string;
@@ -52,7 +53,7 @@ const Feedback = ({ url }: PrivateProps) => {
     url +
     "%5D&body=What's%20the%20problem%3F%0D%0A%0D%0AAny%20suggestions%3F";
 
-  chrome.storage.sync.get(['enable_feedback']).then((result) => {
+  storage.get(['enable_feedback']).then((result: any) => {
     setEnableFeedback(result['enable_feedback']);
   });
 
