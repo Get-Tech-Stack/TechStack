@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { motion } from 'framer-motion';
 
 const Loading = () => {
   const { t } = useTranslation();
@@ -30,26 +29,20 @@ const Loading = () => {
 
   return (
     <div className="techStackRoot">
-      <motion.div
-        initial={{ opacity: 0.8, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.25 }}
-      >
-        <div>
-          <progress
-            id="file"
-            className={`${progress == 100 ? 'tech-stack-jump-animation' : ''}`}
-            value={progress}
-            max="100"
-          >
-            {progress}%
-          </progress>
-        </div>
-        <div>
-          {progress >= 100 ? '🏃' : ''}
-          {t('loading-prompt')}
-        </div>
-      </motion.div>
+      <div>
+        <progress
+          id="file"
+          className={`${progress == 100 ? 'tech-stack-jump-animation' : ''}`}
+          value={progress}
+          max="100"
+        >
+          {progress}%
+        </progress>
+      </div>
+      <div>
+        {progress >= 100 ? '🏃' : ''}
+        {t('loading-prompt')}
+      </div>
     </div>
   );
 };
