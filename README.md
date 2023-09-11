@@ -1,4 +1,3 @@
-![LOGO](img/logo.png)
 <p align="center">
     <img src="https://github.com/Get-Tech-Stack/TechStack/blob/main/img/logo.png" height="128"/></a>
 </p>
