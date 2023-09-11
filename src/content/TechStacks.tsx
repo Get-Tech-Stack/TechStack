@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useLayoutEffect, useState } from 'react';
-import { motion } from 'framer-motion';
 import FingerprintJS from '@fingerprintjs/fingerprintjs';
 import Category from '../components/Category/Category';
 import Feedback from 'components/Feedback/Feedback';
@@ -8,6 +7,7 @@ import Loading from 'components/Loading/Loading';
 import Failed from 'components/Failed/Failed';
 
 import { useTranslation } from 'react-i18next';
+import AnimateHeight, { Height } from 'react-animate-height';
 
 const VERSION = '1.20';
 
@@ -119,19 +119,33 @@ const TechStacks = ({ url }: TechStacksProps) => {
         </div>
       )}
 
-      <motion.div
-        initial={{ opacity: 0.9, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.1 }}
-      >
-        <div className="techstack-category-container">
-          {results.length !== 0 && results}
-          {results.length === 0 && <div>{t('no-found-prompt')}</div>}
-        </div>
-        <Feedback url={url} />
-      </motion.div>
+      <div className="techstack-category-container">
+        {results.length !== 0 && results}
+        {results.length === 0 && <div>{t('no-found-prompt')}</div>}
+      </div>
+      <Feedback url={url} />
     </div>
   );
 };
 
-export default TechStacks;
+const TechstackAnimation = ({ url }: TechStacksProps) => {
+  const [height, setHeight] = useState<Height>('auto');
+  const contentDiv = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver(() => {
+      setHeight(contentDiv.current.clientHeight);
+    });
+
+    resizeObserver.observe(contentDiv.current);
+
+    return () => resizeObserver.disconnect();
+  }, []);
+
+  return (
+    <AnimateHeight height={height} contentClassName="auto-content" contentRef={contentDiv}>
+      <TechStacks url={url} />
+    </AnimateHeight>
+  );
+};
+export default TechstackAnimation;
