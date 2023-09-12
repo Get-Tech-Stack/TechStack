@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 import AnimateHeight, { Height } from 'react-animate-height';
 import storage from '../utils/storage';
 
-const VERSION = '1.20';
+const VERSION = '1.21';
 
 async function fetcher<JSON = any>(input: RequestInfo, init?: RequestInit): Promise<JSON> {
   const res = await fetch(input, { credentials: 'include', ...init });
@@ -78,7 +78,7 @@ const TechStacks = ({ url }: TechStacksProps) => {
 
   useEffect(() => {
     storage.get(['auto_collapsed']).then((result) => {
-      if (result['auto_collapsed']) {
+      if (result['auto_collapsed'] || result['auto_collapsed'] == undefined) {
         setExpand(false);
       } else {
         setExpand(true);

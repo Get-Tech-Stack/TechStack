@@ -22,7 +22,7 @@ async function injectComponent() {
   const result = await storage.get(['techstack_position']);
   let position = 0;
 
-  if (result['techstack_position'] === 'top') {
+  if (result['techstack_position'] === 'top' || result['techstack_position'] === undefined) {
     position = 0;
   }
 
