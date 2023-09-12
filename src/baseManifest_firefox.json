@@ -1,7 +1,7 @@
 {
   "name": "Tech Stack: Show Github Repo Tech Stack",
   "author": "CorrectRoadH",
-  "version": "1.20",
+  "version": "1.21",
   "manifest_version": 2,
   "description": "Show a Github repo's tech stack",
   "icons": {
