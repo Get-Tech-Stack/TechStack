@@ -54,7 +54,7 @@ const Feedback = ({ url }: PrivateProps) => {
     "%5D&body=What's%20the%20problem%3F%0D%0A%0D%0AAny%20suggestions%3F";
 
   storage.get(['enable_feedback']).then((result: any) => {
-    setEnableFeedback(result['enable_feedback'] || result['enable_feedback'] == undefined);
+    setEnableFeedback(result['enable_feedback'] || result['enable_feedback'] === undefined);
   });
 
   if (enableFeedback) {

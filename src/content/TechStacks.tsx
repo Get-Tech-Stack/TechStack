@@ -70,7 +70,7 @@ const TechStacks = ({ url }: TechStacksProps) => {
     };
 
     storage.get(['allow_report_version']).then((result) => {
-      if (result['allow_report_version']) {
+      if (result['allow_report_version'] || result['allow_report_version'] === undefined) {
         reportVersion();
       }
     });
