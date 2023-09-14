@@ -1,10 +1,10 @@
 {
-  "name": "Tech Stack: Show Github Repo Tech Stack",
+  "name": "Tech Stack: Display Github Repo Tech Stack",
   "author": "CorrectRoadH",
-  "version": "1.17",
+  "version": "1.22",
   "manifest_version": 3,
   "description": "When a user visits a Github public repository, the extension will display that repository's tech stack alongside the page.",
-  "short description": "Show a Github repo's tech stack",
+  "short description": "Display a Github repo's tech stack",
   "icons": {
     "16": "assets/icons/icon-16.png",
     "24": "assets/icons/icon-24.png",
@@ -24,9 +24,10 @@
   "background": {
     "service_worker": "background/background.js"
   },
-  "permissions": ["tabs"],
+  "permissions": ["tabs", "storage"],
   "options_ui": {
-    "page": "options/index.html"
+    "page": "options/index.html",
+    "open_in_tab": true
   },
   "action": {
     "default_icon": {
