@@ -59,8 +59,8 @@ const Feedback = ({ url }: PrivateProps) => {
 
   if (enableFeedback) {
     return (
-      <div className="tech-footer">
-        <div className="tech-feedback">
+      <div className="techstack-footer">
+        <div className="techstack-feedback">
           {!liked ? (
             <>
               <div>{t('feedback-prompt')}</div>
@@ -75,7 +75,7 @@ const Feedback = ({ url }: PrivateProps) => {
             <div>{t('feedback-thank')}</div>
           )}
         </div>
-        <a className="tech-footer-feedback" href={mailUrl} target="_blank" rel="noreferrer">
+        <a className="techstack-footer-feedback" href={mailUrl} target="_blank" rel="noreferrer">
           feedback
         </a>
       </div>
