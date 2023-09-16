@@ -10,23 +10,23 @@
   gap: 5px;
 }
 
-.dep-link {
+.techstack-link {
   color: #656d76;
   /* color: black; */
   display: flex;
 }
 
-.dep-link:hover {
+.techstack-link:hover {
   color: #1f6fe5;
   text-decoration: none;
 }
 
-.dep-name {
+.techstack-name {
   margin-top: auto;
   margin-bottom: auto;
 }
 
-.dep-icon {
+.techstack-icon {
   width: 18px;
   height: 18px;
   object-fit: cover;
@@ -81,7 +81,7 @@
   animation: jump-animation 2s linear alternate infinite;
 }
 
-.tech-footer {
+.techstack-footer {
   display: flex;
   width: 100%;
   flex-direction: column;
@@ -94,7 +94,7 @@
   font-size: 14px;
   text-align: center;
 }
-.tech-feedback {
+.techstack-feedback {
   display: flex;
   gap: 5px;
   width: 100%;
@@ -102,6 +102,6 @@
   margin: auto;
 }
 
-.tech-footer-feedback {
+.techstack-footer-feedback {
   margin: auto;
 }
