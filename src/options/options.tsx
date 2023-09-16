@@ -4,9 +4,9 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import Container from './Container';
-import Check from './Check';
-import RadioGroupDemo from './RadioGroupDemo';
-import './i18n';
+import Check from '../components/Check/Check';
+import Radio from '../components/Radio/Radio';
+import '../i18n';
 import { useTranslation } from 'react-i18next';
 
 const Index = () => {
@@ -35,7 +35,7 @@ const Index = () => {
           storageKey="enable_feedback"
           defaultValue={true}
         />
-        <RadioGroupDemo
+        <Radio
           title={t('position')}
           labels={[t('top'), t('middle'), t('bottom')]}
           options={['top', 'middle', 'bottom']}

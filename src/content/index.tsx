@@ -9,16 +9,11 @@ import isGithubRepoPage from './isGithubRepoPage';
 import PrivateRepo from 'components/PrivateRepo/PrivateRepo';
 import storage from '../utils/storage';
 
-// import "./content.css";
-import './i18n';
+import '../i18n';
 
 runtime.onMessage.addListener(MessageListener);
 
-async function injectComponent() {
-  console.log('Tech-Stack: https://github.com/Get-Tech-Stack/TechStack');
-
-  const url = window.location.href;
-
+const get_insert_dom = async () => {
   const result = await storage.get(['techstack_position']);
   let position = 0;
 
@@ -35,6 +30,13 @@ async function injectComponent() {
   }
 
   const dom = document.getElementsByClassName('BorderGrid-cell')[position];
+  return dom;
+};
+
+async function injectComponent() {
+  console.log('Tech-Stack: https://github.com/Get-Tech-Stack/TechStack');
+
+  const url = window.location.href;
 
   const techStack = `<h2 class="mb-3 h4">Tech Stack</h2>
                         <div class="my-3">
@@ -42,6 +44,7 @@ async function injectComponent() {
                             </div>
                         </div>`;
 
+  const dom = await get_insert_dom();
   if (dom !== undefined) {
     let ReactDom = <PrivateRepo url={url} />;
 

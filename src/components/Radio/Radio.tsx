@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import * as RadioGroup from '@radix-ui/react-radio-group';
-import storage from '../utils/storage';
+import storage from '../../utils/storage';
 
 interface ToggleGroupProps {
   title: string;
@@ -13,7 +13,7 @@ interface ToggleGroupProps {
   imgLink: string[];
 }
 
-const RadioGroupDemo = ({ storageKey, title, defaultValue, options, labels, imgLink }: ToggleGroupProps) => {
+const Radio = ({ storageKey, title, defaultValue, options, labels, imgLink }: ToggleGroupProps) => {
   const [value, setValue] = useState('default');
 
   useEffect(() => {
@@ -62,4 +62,4 @@ const RadioGroupDemo = ({ storageKey, title, defaultValue, options, labels, imgL
   );
 };
 
-export default RadioGroupDemo;
+export default Radio;
