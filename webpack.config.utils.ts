@@ -142,15 +142,15 @@ export const getCopyPlugins = (
           to: path.resolve(__dirname, `${outputDir}/${browserDir}/options`),
         },
         {
-          from: path.resolve(__dirname, `${sourceDir}/options/1.png`),
+          from: path.resolve(__dirname, `${sourceDir}/assets/options/1.png`),
           to: path.resolve(__dirname, `${outputDir}/${browserDir}/options`),
         },
         {
-          from: path.resolve(__dirname, `${sourceDir}/options/2.png`),
+          from: path.resolve(__dirname, `${sourceDir}/assets/options/2.png`),
           to: path.resolve(__dirname, `${outputDir}/${browserDir}/options`),
         },
         {
-          from: path.resolve(__dirname, `${sourceDir}/options/3.png`),
+          from: path.resolve(__dirname, `${sourceDir}/assets/options/3.png`),
           to: path.resolve(__dirname, `${outputDir}/${browserDir}/options`),
         },
 

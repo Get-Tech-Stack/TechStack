@@ -1,8 +1,8 @@
 Arguments: 
-  /Users/ctrdh/Library/Application Support/fnm/node-versions/v18.16.1/installation/bin/node /Users/ctrdh/Library/Caches/fnm_multishells/13752_1694419640017/bin/yarn
+  /Users/ctrdh/Library/Application Support/fnm/node-versions/v18.16.1/installation/bin/node /Users/ctrdh/Library/Caches/fnm_multishells/38869_1694828137314/bin/yarn
 
 PATH: 
-  /Users/ctrdh/.jbang/bin:/opt/homebrew/opt/openjdk@11/bin:/opt/homebrew/opt/ssh-copy-id/bin:/opt/homebrew/opt/libpq/bin:/Users/ctrdh/Library/Caches/fnm_multishells/13752_1694419640017/bin:/Users/ctrdh/.pyenv/shims:/Users/ctrdh/.orbstack/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/ctrdh/.jbang/bin:/opt/homebrew/opt/openjdk@11/bin:/opt/homebrew/opt/ssh-copy-id/bin:/opt/homebrew/opt/libpq/bin:/Users/ctrdh/Library/Caches/fnm_multishells/95296_1694407022011/bin:/Users/ctrdh/.orbstack/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/ctrdh/.cargo/bin:/Users/ctrdh/.fig/bin:/Users/ctrdh/.local/bin:/Users/ctrdh/go/bin:~/.local/bin:/Users/ctrdh/go/bin:~/.local/bin
+  /Users/ctrdh/.jbang/bin:/opt/homebrew/opt/openjdk@11/bin:/opt/homebrew/opt/ssh-copy-id/bin:/opt/homebrew/opt/libpq/bin:/Users/ctrdh/Library/Caches/fnm_multishells/38869_1694828137314/bin:/Users/ctrdh/.pyenv/shims:/Users/ctrdh/.orbstack/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/ctrdh/.jbang/bin:/opt/homebrew/opt/openjdk@11/bin:/opt/homebrew/opt/ssh-copy-id/bin:/opt/homebrew/opt/libpq/bin:/Users/ctrdh/Library/Caches/fnm_multishells/37689_1694827747015/bin:/Users/ctrdh/.orbstack/bin:/opt/homebrew/bin:/opt/homebrew/sbin:/Users/ctrdh/.cargo/bin:/Users/ctrdh/.fig/bin:/Users/ctrdh/.local/bin:/Users/ctrdh/.dotnet/tools:/Users/ctrdh/go/bin:~/.local/bin:/Users/ctrdh/.dotnet/tools:/Users/ctrdh/go/bin:~/.local/bin
 
 Yarn version: 
   1.22.19
@@ -14,8 +14,7 @@ Platform:
   darwin arm64
 
 Trace: 
-  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
-      at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:107:26)
+  Error: EINVAL: invalid argument, mkdir '/Users/ctrdh/TechStack/Homepage/node_modules/webpack-ext-reloader-mv3/node_modules/@types/webpack/node_modules'
 
 npm manifest: 
   {

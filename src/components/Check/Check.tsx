@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import * as Switch from '@radix-ui/react-switch';
-import storage from '../utils/storage';
+import storage from '../../utils/storage';
 
 interface CheckProps {
   title: string;

@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 import AnimateHeight, { Height } from 'react-animate-height';
 import storage from '../utils/storage';
 
-const VERSION = '1.21';
+const VERSION = '1.22';
 
 async function fetcher<JSON = any>(input: RequestInfo, init?: RequestInit): Promise<JSON> {
   const res = await fetch(input, { credentials: 'include', ...init });
@@ -49,7 +49,7 @@ const TechStacks = ({ url }: TechStacksProps) => {
   const [height, setHeight] = useState(0);
 
   // the status is to renew get the height of the techstack container
-  const [loadStatus, setLoadStatus] = useState(1);
+  const [loadStatus, setLoadStatus] = useState(false);
 
   const open = () => {
     setExpand(true);
@@ -103,9 +103,11 @@ const TechStacks = ({ url }: TechStacksProps) => {
     results.push(<Category name={key} key={key} deps={value} />);
   });
 
-  if (loadStatus === 1) {
-    setLoadStatus(2);
+  // the status is for to trigger the useEffect to get the height of the techstack container
+  if (!loadStatus) {
+    setLoadStatus(true);
   }
+
   return (
     <div
       className="techStackRoot"
