@@ -3,6 +3,8 @@
 </p>
 
 
+
+
 # What is Tech Stack
 Tech Stack is a browser extension that will display the tech stack of the GitHub repository you are visiting.
 
@@ -10,7 +12,14 @@ Tech Stack 是一个浏览器拓展，它将展示你正在访问的 GitHub 仓�
 
 
 Discuss in [Discord](https://discord.gg/hEXF9utNHH) / [Telegram](https://t.me/gettechstack) 
+    
+<p align="center">
+    <a href="https://twitter.com/intent/follow?screen_name=gettechstack">
+        <img src="https://img.shields.io/badge/twitter-%40TechStack-blue.svg?&color=%2385c8c8&logo=twitter&style=for-the-badge" />
+    </a>
+</p>
 
+</div>
 
 ![Alt text](img/1.png)
 ![Alt text](img/2.png)
