@@ -1,48 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import Feedback from 'components/Feedback/Feedback';
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-const Loading = () => {
+interface LoadingProps {
+  url: string;
+}
+const Loading = ({ url }: LoadingProps) => {
   const { t } = useTranslation();
-
-  const MAX_PROGRESS = 100;
-  const INCREMENT = 1;
-  const SLOWDOWN_THRESHOLD = 90;
-  const SLOWDOWN_FACTOR = 3;
-
-  const [progress, setProgress] = useState<number>(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (progress < SLOWDOWN_THRESHOLD) {
-        setProgress((prevProgress: number) => prevProgress + INCREMENT);
-      } else {
-        setProgress((prevProgress) => prevProgress + INCREMENT / SLOWDOWN_FACTOR);
-      }
-
-      if (progress > MAX_PROGRESS) {
-        setProgress(MAX_PROGRESS);
-      }
-    }, 200);
-
-    return () => clearInterval(interval);
-  }, [progress]);
 
   return (
     <div className="techStackRoot">
-      <div>
-        <progress
-          id="file"
-          className={`${progress == 100 ? 'tech-stack-jump-animation' : ''}`}
-          value={progress}
-          max="100"
-        >
-          {progress}%
-        </progress>
+      <div className="text-center" data-hide-on-error="">
+        <picture>
+          <img
+            src="https://github.githubassets.com/images/mona-loading-default.gif"
+            width="48"
+            alt="Loading your activity..."
+            className="mt-4 hide-reduced-motion"
+          />
+        </picture>
+        <div>{t('loading-prompt')}</div>
       </div>
-      <div>
-        {progress >= 100 ? '🏃' : ''}
-        {t('loading-prompt')}
-      </div>
+
+      <Feedback url={url} />
     </div>
   );
 };

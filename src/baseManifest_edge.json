@@ -1,7 +1,7 @@
 {
   "name": "Tech Stack: Display Github Repo Tech Stack",
   "author": "CorrectRoadH",
-  "version": "1.22",
+  "version": "1.23",
   "manifest_version": 3,
   "description": "When a user visits a Github public repository, the extension will display that repository's tech stack alongside the page.",
   "short description": "Display a Github repo's tech stack",
