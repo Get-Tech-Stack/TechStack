@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 import AnimateHeight, { Height } from 'react-animate-height';
 import storage from '../utils/storage';
 
-const VERSION = '1.22';
+const VERSION = '1.23';
 
 async function fetcher<JSON = any>(input: RequestInfo, init?: RequestInit): Promise<JSON> {
   const res = await fetch(input, { credentials: 'include', ...init });
@@ -94,9 +94,9 @@ const TechStacks = ({ url }: TechStacksProps) => {
     setHeight(height);
   }, [loadStatus]);
 
-  if (error) return <Failed />;
+  if (error) return <Failed url={url} />;
 
-  if (isLoading) return <Loading />;
+  if (isLoading) return <Loading url={url} />;
 
   const results: any[] = [];
   Object.entries(data || {}).forEach(([key, value]) => {

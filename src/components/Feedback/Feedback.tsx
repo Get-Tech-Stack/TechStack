@@ -62,7 +62,7 @@ const Feedback = ({ url }: PrivateProps) => {
       <div className="techstack-footer">
         <div className="techstack-feedback">
           {!liked ? (
-            <>
+            <div className="techstack-feedback-interaction">
               <div>{t('feedback-prompt')}</div>
               <div ref={likeRef} className="cursor-pointer" onClick={() => handleLikeBtnClick(url)}>
                 👍
@@ -70,9 +70,9 @@ const Feedback = ({ url }: PrivateProps) => {
               <div ref={unlikeRef} className="cursor-pointer" onClick={() => handleUnlikeBtnClick(url)}>
                 👎
               </div>
-            </>
+            </div>
           ) : (
-            <div>{t('feedback-thank')}</div>
+            <div className="techstack-feedback-interaction">{t('feedback-thank')}</div>
           )}
         </div>
         <a className="techstack-footer-feedback" href={mailUrl} target="_blank" rel="noreferrer">
