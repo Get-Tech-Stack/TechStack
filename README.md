@@ -19,7 +19,7 @@ Discuss in [Discord](https://discord.gg/hEXF9utNHH) / [Telegram](https://t.me/ge
     </a>
 </p>
 
-Submit a techstack in [here](https://submit-techstack.zeabur.app/)
+Request a new tech stack in [here](https://submit-techstack.zeabur.app/). It will be add to the System as soon as possible.
 
 </div>
 
