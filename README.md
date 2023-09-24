@@ -19,6 +19,8 @@ Discuss in [Discord](https://discord.gg/hEXF9utNHH) / [Telegram](https://t.me/ge
     </a>
 </p>
 
+Submit a techstack in [here](https://submit-techstack.zeabur.app/)
+
 </div>
 
 ![Alt text](img/1.png)
