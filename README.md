@@ -21,22 +21,27 @@ Request a new tech stack in [here](https://submit-techstack.zeabur.app/). It wil
 ![Alt text](img/1.png)
 ![Alt text](img/2.png)
 
-<a target="_blank" href="https://addons.mozilla.org/zh-CN/firefox/addon/get-tech-stack/">
-    <img width="250" alt="Click to Install" src="https://github.com/Get-Tech-Stack/Homepage/blob/main/img/firefox.en.png?raw=true" />
-</a>
+<p align="center">
+    <a target="_blank" href="https://addons.mozilla.org/zh-CN/firefox/addon/get-tech-stack/">
+        <img width="250" alt="Click to Install" src="https://github.com/Get-Tech-Stack/Homepage/blob/main/img/firefox.en.png?raw=true" />
+    </a>
+</p>
 
 <br />
 
-<a target="_blank" href="https://chrome.google.com/webstore/detail/tech-stack-show-github-re/lbhjnhabgddabnagncmcgomggeadlbhh">
-    <img width="250" alt="Click to Install" src="https://github.com/Get-Tech-Stack/Homepage/blob/main/img/chrome.en.png?raw=true" />
-</a>
+<p align="center">
+    <a target="_blank" href="https://chrome.google.com/webstore/detail/tech-stack-show-github-re/lbhjnhabgddabnagncmcgomggeadlbhh">
+        <img width="250" alt="Click to Install" src="https://github.com/Get-Tech-Stack/Homepage/blob/main/img/chrome.en.png?raw=true" />
+    </a>
+</p>
 
 <br />
 
-<a target="_blank" href="https://chrome.google.com/webstore/detail/tech-stack-show-github-re/lbhjnhabgddabnagncmcgomggeadlbhh">
-    <img width="250" alt="Click to Install" src="https://github.com/Get-Tech-Stack/Homepage/blob/main/img/edge.en.png?raw=true" />
-</a>
-
+<p align="center">
+    <a target="_blank" href="https://chrome.google.com/webstore/detail/tech-stack-show-github-re/lbhjnhabgddabnagncmcgomggeadlbhh">
+        <img width="250" alt="Click to Install" src="https://github.com/Get-Tech-Stack/Homepage/blob/main/img/edge.en.png?raw=true" />
+    </a>
+</p>
 ## Feedback
 If you have any questions or suggestions, please feel free to contact us in GitHub Issue.
 
