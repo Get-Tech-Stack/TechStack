@@ -14,7 +14,8 @@ Tech Stack 是一个浏览器拓展，它将展示你正在访问的 GitHub 仓�
     </a>
 </p>
 
-新增技术栈[点这里](https://submit-techstack.zeabur.app/). 它会尽快被添加到系统中。
+请求识别技术栈[点这里](https://submit-techstack.zeabur.app/). 它会尽快被添加到系统中。
+我们也欢迎任何开发者提交自己开发的技术栈。😎
 
 </div>
 
