@@ -15,6 +15,7 @@ Discuss in [Discord](https://discord.gg/hEXF9utNHH) / [Telegram](https://t.me/ge
 </p>
 
 Request a new tech stack in [here](https://submit-techstack.zeabur.app/). It will be add to the System as soon as possible.
+We also welcome any developer to submit their own tech stack.😎
 
 </div>
 
