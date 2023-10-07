@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/Get-Tech-Stack/TechStack/blob/main/img/logo.png" height="128"/></a>
+    <img src="https://github.com/Get-Tech-Stack/TechStack/blob/main/img/logo.png?raw=true" height="128"/></a>
 </p>
 
 English | [简体中文](./README.zh-CN.md)
