@@ -10,7 +10,7 @@ const Failed = ({ url }: FailedProps) => {
 
   return (
     <div className="techStackRoot">
-      <div>{t('failed-propmpt')} </div>
+      <div>{t('failed-prompt')} </div>
       <Feedback url={url} />
     </div>
   );
