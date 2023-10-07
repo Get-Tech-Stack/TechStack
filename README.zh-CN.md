@@ -26,13 +26,9 @@ Tech Stack 是一个浏览器拓展，它将展示你正在访问的 GitHub 仓�
     <img width="250" alt="Click to Install" src="https://github.com/Get-Tech-Stack/Homepage/blob/main/img/firefox.zh.png?raw=true" />
 </a>
 
-<br />
-
 <a target="_blank" href="https://chrome.google.com/webstore/detail/tech-stack-show-github-re/lbhjnhabgddabnagncmcgomggeadlbhh">
     <img width="250" alt="Click to Install" src="https://github.com/Get-Tech-Stack/Homepage/blob/main/img/chrome.zh.png?raw=true" />
 </a>
-
-<br />
 
 <a target="_blank" href="https://chrome.google.com/webstore/detail/tech-stack-show-github-re/lbhjnhabgddabnagncmcgomggeadlbhh">
     <img width="250" alt="Click to Install" src="https://github.com/Get-Tech-Stack/Homepage/blob/main/img/edge.zh.png?raw=true" />
