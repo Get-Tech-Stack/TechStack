@@ -14,7 +14,7 @@ Discuss in [Discord](https://discord.gg/hEXF9utNHH) / [Telegram](https://t.me/ge
     </a>
 </p>
 
-Request a new tech stack in [here](https://submit-techstack.zeabur.app/). It will be add to the System as soon as possible.
+Request a new tech stack through [this page](https://submit-techstack.zeabur.app/). It will be added to the System as soon as possible.
 We also welcome any developer to submit their own tech stack.😎
 
 </div>
@@ -35,7 +35,10 @@ We also welcome any developer to submit their own tech stack.😎
 </a>
 
 ## Feedback
-If you have any questions or suggestions, please feel free to contact us in GitHub Issue.
+If you have any questions or suggestions, please feel free to contact us by opening an [issue on GitHub](https://github.com/Get-Tech-Stack/TechStack/issues).
 
-## About the TechStack
-TechStack will free forever. But now open source is only one part of the TechStack. Because the Extension is running in user's browser, so we need open source to let user know what we are doing in the extension. It can ensure Don't be evil.
+## About TechStack
+TechStack will be free forever. But for now, open source is only one part of TechStack. Since the extension is running in users's browsers, we need open source to be transparent and let users know what we are doing in the extension. It enforces the "Don't be evil" policy.
+
+## Support ❤️
+You can support the development and maintenance of TechStack with a small contribution through [TechStack's Olostep page](https://donations.olostep.com/tech-stack-github)
