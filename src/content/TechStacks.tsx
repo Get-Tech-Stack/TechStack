@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 import AnimateHeight, { Height } from 'react-animate-height';
 import storage from '../utils/storage';
 
-const VERSION = '1.23';
+const VERSION = '1.24';
 
 async function fetcher<JSON = any>(input: RequestInfo, init?: RequestInit): Promise<JSON> {
   const res = await fetch(input, { credentials: 'include', ...init });
