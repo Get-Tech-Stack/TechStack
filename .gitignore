@@ -3,3 +3,4 @@ node_modules
 dev
 dist
 temp
+yarn-error.log
