@@ -5,6 +5,7 @@ import Feedback from 'components/Feedback/Feedback';
 import useSWR from 'swr';
 import Loading from 'components/Loading/Loading';
 import Failed from 'components/Failed/Failed';
+import { ChevronDownIcon } from '@radix-ui/react-icons';
 
 import { useTranslation } from 'react-i18next';
 import AnimateHeight, { Height } from 'react-animate-height';
@@ -117,7 +118,8 @@ const TechStacks = ({ url }: TechStacksProps) => {
       {!expand && !(height < 450) && (
         <div className={`techstack-collapsed-container`}>
           <div className="techstack-open" onClick={() => open()}>
-            {t('expand-all')}
+            <ChevronDownIcon />
+            <div>{t('expand-all')}</div>
           </div>
         </div>
       )}
