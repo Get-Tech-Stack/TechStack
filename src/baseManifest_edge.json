@@ -3,7 +3,7 @@
   "author": "CorrectRoadH",
   "version": "1.24",
   "manifest_version": 3,
-  "description": "The extension will display the tech stack of the Repo when the user visits a GitHub Public Repo. The user can easily get more info about the repo.",
+  "description": "The extension will display the tech stack of the Repo when the user visits a GitHub Public Repo.",
   "short description": "Display a Github repo's tech stack",
   "icons": {
     "16": "assets/icons/icon-16.png",
