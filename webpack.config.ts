@@ -90,16 +90,16 @@ if (config.NODE_ENV === 'upload') {
   generalConfig = {
     ...generalConfig,
     optimization: {
-      minimize: false,
+      minimize: true,
       minimizer: [
         new TerserPlugin({
           parallel: true,
           terserOptions: {
             format: {
-              comments: false,
+              comments: true,
             },
           },
-          extractComments: false,
+          extractComments: true,
         }),
       ],
     },
