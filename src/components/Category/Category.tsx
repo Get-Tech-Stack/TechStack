@@ -9,7 +9,7 @@ const Category = ({ name, deps }: CategoryProps) => {
   const { t } = useTranslation();
   return (
     <div>
-      <div className="techstack-title">{t(name)}</div>
+      <div className="f4">{t(name)}</div>
       <div className="techstack-deps">
         {deps.map((dependency: any) => (
           <Dependency key={dependency.name} data={dependency} />
