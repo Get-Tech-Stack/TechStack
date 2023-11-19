@@ -1,7 +1,7 @@
 {
   "name": "TechStack: Show Github Repo Tech Stack",
   "author": "CorrectRoadH",
-  "version": "1.24",
+  "version": "1.25",
   "manifest_version": 2,
   "description": "The extension will display the tech stack of the Repo when the user visits a GitHub Public Repo. The user can easily get more info about the repo.",
   "icons": {
